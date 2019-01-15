@@ -1,0 +1,19 @@
+.comments {
+  display: flex;
+  padding-left: 10px;
+  background: #fff;
+  border-left: 1px solid #ececec;
+  border-right: 1px solid #ececec;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.comment {
+  font-size: 13px;
+  margin-left: 5px;
+  margin-top: 5px;
+}

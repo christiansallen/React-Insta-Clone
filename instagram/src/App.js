@@ -3,6 +3,7 @@ import "./App.css";
 import PostContainer from "./componenets/PostContainer/PostContainer";
 import SearchBar from "./componenets/SearchBar/SearchBar";
 import dummyData from "./dummy-data";
+import PropTypes from "prop-types";
 
 class App extends Component {
   constructor() {
@@ -21,5 +22,9 @@ class App extends Component {
     );
   }
 }
+
+App.PropTypes = {
+  dummyData: PropTypes.object
+};
 
 export default App;
