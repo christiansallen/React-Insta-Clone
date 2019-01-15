@@ -4,13 +4,6 @@ import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
 
 const PostContainer = props => {
-  const comments = [];
-  props.dummyData.map(post => {
-    return comments.push(post.comments);
-  });
-  console.log(comments);
-  console.log(props.dummyData);
-
   return (
     <div>
       <div className="post-container">
@@ -27,15 +20,22 @@ const PostContainer = props => {
               </div>
               <img src={post.imageUrl} alt={post.username} className="image" />
               <div className="heart-comment">
-                <i className="far fa-heart" />
+                <i
+                  className="far fa-heart"
+                  onClick={() => props.liked(post.username)}
+                  style={props.completed ? { color: "red" } : null}
+                />
                 <i class="far fa-comment" />
               </div>
               <div className="likes">{post.likes} likes</div>
-              <CommentSection comments={post.comments} />
-              <div className="timestamp">{post.timestamp}</div>
-              <div className="add-comment">
-                <p>Add a comment...</p>
-              </div>
+              <CommentSection
+                comments={post.comments}
+                handleChange={props.handleChange}
+                addNewComment={props.addNewComment}
+                username={post.username}
+                newComment={props.newComment}
+                timestamp={post.timestamp}
+              />
             </div>
           );
         })}

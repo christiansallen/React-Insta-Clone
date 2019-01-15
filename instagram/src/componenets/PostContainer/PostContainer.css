@@ -56,22 +56,3 @@
   border-right: 1px solid #ececec;
   background: #fff;
 }
-
-.timestamp {
-  background: white;
-  border-left: 1px solid #ececec;
-  border-right: 1px solid #ececec;
-  font-size: 11px;
-  color: #b3b0b8;
-  padding: 10px 0px 10px 10px;
-}
-
-.add-comment {
-  background: white;
-  padding-left: 10px;
-  border: 1px solid #ececec;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  color: #b3b0b8;
-}
