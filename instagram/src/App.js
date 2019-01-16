@@ -16,8 +16,16 @@ class App extends Component {
     };
   }
 
-  search = e => {
+  componentDidMount() {
+    this.setState({ dummyData: dummyData });
+  }
+
+  search = (e, searchValue) => {
     e.preventDefault();
+    const newData = this.state.dummyData.filter(post => {
+      return searchValue === post.username;
+    });
+    this.setState({ dummyData: newData, searchValue: "" });
   };
 
   liked = username => {
@@ -53,13 +61,6 @@ class App extends Component {
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-
-  componentDidMount() {
-    fetch(dummyData)
-      .then(res => res.json())
-      .then(this.setState({ dummyData: dummyData }))
-      .catch(err => console.log(err));
-  }
 
   render() {
     return (

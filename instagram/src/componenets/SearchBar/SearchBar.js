@@ -12,12 +12,14 @@ const SearchBar = props => {
         <h1 className="header">Instagram</h1>
       </div>
       <div className="middle-section">
-        <form onSubmit={e => props.search(e)}>
+        <form onSubmit={e => props.search(e, props.searchValue)}>
           <input
             type="text"
             placeholder="Search..."
             className="search-bar"
             onChange={props.handleChange}
+            value={props.searchValue}
+            name="searchValue"
           />
         </form>
       </div>
