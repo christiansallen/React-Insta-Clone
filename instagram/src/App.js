@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import PostContainer from "./componenets/PostContainer/PostContainer";
-import SearchBar from "./componenets/SearchBar/SearchBar";
 import dummyData from "./dummy-data";
 import PropTypes from "prop-types";
+import PostsPage from "./componenets/PostContainer/PostsPage";
+import Login from "./componenets/Login/Login";
+import authenticate from "./componenets/PostContainer/Authentication";
 
 class App extends Component {
   constructor() {
@@ -60,28 +61,35 @@ class App extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+    if (this.state.searchValue === "") {
+      this.setState({ dummyData: dummyData });
+    }
+  };
+
+  login = () => {
+    console.log("login");
   };
 
   render() {
     return (
       <div className="App">
-        <SearchBar
+        <PostsPage
           handleChange={this.handleChange}
           searchValue={this.state.searchValue}
           search={this.search}
-        />
-        <PostContainer
           dummyData={this.state.dummyData}
           addNewComment={this.addNewComment}
-          handleChange={this.handleChange}
           newComment={this.state.newComment}
           liked={this.liked}
           completed={this.state.completed}
         />
+        <Login login={this.login} />
       </div>
     );
   }
 }
+
+const Authenticate = authenticate(App)(Login);
 
 App.propTypes = {
   dummyData: PropTypes.object,
