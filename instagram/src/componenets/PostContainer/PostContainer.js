@@ -3,6 +3,11 @@ import "./PostContainer.css";
 import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
 
+function logout() {
+  window.localStorage.clear();
+  window.location.reload();
+}
+
 const PostContainer = props => {
   return (
     <div>
@@ -39,12 +44,15 @@ const PostContainer = props => {
             </div>
           );
         })}
+        <button className="logout" onClick={logout}>
+          Logout
+        </button>
       </div>
     </div>
   );
 };
 
-PostContainer.PropTypes = {
+PostContainer.propTypes = {
   thumbnailUrl: PropTypes.string,
   username: PropTypes.string,
   imageUrl: PropTypes.string,

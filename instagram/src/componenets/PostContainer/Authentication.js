@@ -2,23 +2,24 @@ import React from "react";
 import Login from "./../Login/Login";
 import PostsPage from "./PostsPage";
 
-const authenticate = App => LoginPage =>
+const authenticate = App => Login =>
   class extends React.Component {
     constructor() {
       super();
       this.state = {
-        loggedIn: false,
-        user: {}
+        loggedIn: false
       };
     }
 
-    toggle = () => {
-      const toggled = this.setState({ loggedIn: true });
-      return toggled;
+    componentDidMount = () => {
+      if (!localStorage.getItem("user")) {
+        this.setState({ loggedIn: false });
+      } else {
+        this.setState({ loggedIn: true });
+      }
     };
 
     authentication = () => {
-      this.toggle();
       if (this.state.loggedIn === false) {
         return <Login />;
       } else {

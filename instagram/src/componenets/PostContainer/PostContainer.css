@@ -56,3 +56,14 @@
   border-right: 1px solid #ececec;
   background: #fff;
 }
+
+.logout {
+  width: 100%;
+  background: rgba(73, 73, 180, 0.658);
+  color: white;
+  padding: 10px;
+  font-size: 30px;
+  width: 30%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
