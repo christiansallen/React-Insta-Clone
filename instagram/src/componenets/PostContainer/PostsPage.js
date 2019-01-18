@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PostContainer from "./PostContainer";
 import SearchBar from "../SearchBar/SearchBar";
 import dummyData from "./../../dummy-data";
+import styled, { css } from "styled-components";
 
 class PostsPage extends Component {
   constructor(props) {

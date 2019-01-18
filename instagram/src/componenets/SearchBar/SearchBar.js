@@ -1,34 +1,88 @@
 import React from "react";
 import "./SearchBar.css";
+import styled, { css } from "styled-components";
+
+const SearchContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+`;
+
+const LeftSection = styled.div`
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  width: 33%;
+`;
+
+const Header = styled.h1`
+  font-family: ubuntu;
+`;
+
+const Divider = styled.span`
+  font-size: 40px;
+  font-weight: 200;
+  margin-right: 10px;
+  padding-bottom: 5px;
+`;
+
+const MiddleSection = styled.div`
+  width: 33%;
+  text-align: center;
+`;
+
+const IgIcon = styled.span`
+  font-size: 40px;
+  margin-right: 10px;
+`;
+
+const RightSection = styled.div`
+  margin-right: 20px;
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+
+  i {
+    font-size: 25px;
+    margin-left: 25px;
+  }
+`;
+
+const Search = styled.input`
+  height: 20px;
+  width: 150px;
+  text-align: center;
+`;
 
 const SearchBar = props => {
   return (
-    <div className="search-container">
-      <div className="left-section">
-        <span className="ig-icon">
+    <SearchContainer>
+      <LeftSection>
+        <IgIcon>
           <i className="fab fa-instagram" />
-        </span>
-        <span className="divider">|</span>
-        <h1 className="header">Instagram</h1>
-      </div>
-      <div className="middle-section">
+        </IgIcon>
+        <Divider>|</Divider>
+        <Header>Instagram</Header>
+      </LeftSection>
+      <MiddleSection>
         <form onSubmit={e => props.search(e, props.searchValue)}>
-          <input
+          <Search
             type="text"
             placeholder="Search..."
-            className="search-bar"
             onChange={props.handleChange}
             value={props.searchValue}
             name="searchValue"
           />
         </form>
-      </div>
-      <div className="right-section">
+      </MiddleSection>
+      <RightSection>
         <i className="far fa-compass" />
         <i className="far fa-heart" />
         <i className="far fa-user" />
-      </div>
-    </div>
+      </RightSection>
+    </SearchContainer>
   );
 };
 
