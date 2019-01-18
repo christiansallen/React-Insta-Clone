@@ -69,7 +69,7 @@ class PostsPage extends Component {
       <div className="posts-page">
         <SearchBar
           handleChange={this.handleChange}
-          searchValue={this.searchValue}
+          searchValue={this.state.searchValue}
           search={this.search}
         />
         <PostContainer
